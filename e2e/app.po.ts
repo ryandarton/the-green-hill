@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class OshopPage {
+export class HoneyShopPage {
   navigateTo() {
     return browser.get('/');
   }

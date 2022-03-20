@@ -1,10 +1,10 @@
-import { OshopPage } from './app.po';
+import { HoneyShopPage } from './app.po';
 
-describe('oshop App', () => {
-  let page: OshopPage;
+describe('honey-shop App', () => {
+  let page: HoneyShopPage;
 
   beforeEach(() => {
-    page = new OshopPage();
+    page = new HoneyShopPage();
   });
 
   it('should display welcome message', () => {
