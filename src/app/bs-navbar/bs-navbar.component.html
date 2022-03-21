@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand" routerLink="/">Green Hills Farm</a>
+  <a class="navbar-brand" routerLink="/">Green Hill Farm</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -23,7 +23,7 @@
         </li>
       </ng-template>
       <li
-        *ngIf="auth.user$ | async as user; else anonymousUser"
+        *ngIf="appUser; else anonymousUser"
         ngbDropdown
         display="dynamic"
         class="nav-item dropdown"
@@ -35,14 +35,16 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          >{{ user.displayName }}</a
+          >{{ appUser.name }}</a
         >
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
+          <ng-container *ngIf="appUser.isAdmin">
           <a class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
           <a class="dropdown-item" routerLink="admin/products"
             >Manage Products</a
           >
+        </ng-container>
           <a class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
       </li>

@@ -3,6 +3,7 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyAn9FoYuuVNKgM4znRAmof6HecKc-NqqQw",
     authDomain: "darton-honey.firebaseapp.com",
+    databaseURL: "https://darton-honey-default-rtdb.firebaseio.com",
     projectId: "darton-honey",
     storageBucket: "darton-honey.appspot.com",
     messagingSenderId: "210434768327",
