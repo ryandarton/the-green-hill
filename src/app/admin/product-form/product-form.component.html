@@ -2,10 +2,11 @@
   <div class="col-md-6">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">
+        <!-- Title  -->
         <label for="title">Title</label>
         <input
           #title="ngModel"
-          ngModel
+          [(ngModel)]="product.title"
           name="title"
           id="title"
           type="text"
@@ -17,13 +18,14 @@
           Input is required.
         </div>
       </div>
+      <!-- Price  -->
       <div class="form-group">
         <label for="price">Price</label>
         <div class="input-group">
           <span class="input-group-addon">$</span>
           <input
             #price="ngModel"
-            ngModel
+            [(ngModel)]="product.price"
             name="price"
             id="price"
             type="number"
@@ -39,11 +41,12 @@
           </div>
         </div>
       </div>
+      <!-- Category -->
       <div class="form-group">
         <label for="category">Category</label>
         <select
           #category="ngModel"
-          ngModel
+          [(ngModel)]="product.category"
           name="category"
           id="category"
           class="form-control"
@@ -52,7 +55,7 @@
           <option value=""></option>
           <option
             *ngFor="let category of categories$ | async"
-            [value]="category.$key"
+            [value]="category.key"
           >
             {{ category.name }}
           </option>
@@ -64,11 +67,12 @@
           Category is required.
         </div>
       </div>
+      <!-- Image URL -->
       <div class="form-group">
         <label for="imageUrl">Image URL</label>
         <input
           #imageUrl="ngModel"
-          ngModel
+          [(ngModel)]="product.imageUrl"
           name="imageUrl"
           id="imageUrl"
           type="text"
@@ -87,12 +91,13 @@
       <button class="btn btn-primary">Save</button>
     </form>
   </div>
+  <!-- Card -->
   <div class="col-md-6">
     <div class="card" style="width: 20rem">
-      <img class="card-img-top" [src]="imageUrl.value" alt="" />
+      <img class="card-img-top" [src]="product.imageUrl" *ngIf="product.imageUrl" alt="" />
       <div class="card-body">
-        <h4 class="card-title">{{ title.value }}</h4>
-        <p class="card-text">{{ price.value | currency: "USD":true }}</p>
+        <h4 class="card-title">{{ product.title.value }}</h4>
+        <p class="card-text">{{ product.price.value | currency: "USD":true }}</p>
       </div>
     </div>
   </div>
